@@ -20,7 +20,7 @@ const BackendLayout = () => {
 const styles = {
   container: {
     display: 'flex',
-    bgcolor: 'red',
+    bgcolor: 'neutral.light',
   },
   mainSection: { px: 4, width: '100%', height: '100%', overflow: 'auto' },
 }

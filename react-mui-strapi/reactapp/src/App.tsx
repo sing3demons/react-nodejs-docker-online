@@ -1,29 +1,27 @@
-import { Button, Stack } from '@mui/material'
-import { Delete, Send, Photo } from '@mui/icons-material'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import AuthLayout from './layouts/AuthLayout'
+import Login from './pages/Login'
+import BackendLayout from './layouts/BackendLayout'
+import Dashboard from './pages/Dashboard'
+import Product from './pages/Product'
+import Report from './pages/Report'
+import Setting from './pages/Setting'
 
 function App() {
   return (
-    <>
-      <h1>MUI Button</h1>
-      <Stack spacing={2} direction='row'>
-        <Button variant='text'>Text</Button>
-        <Button variant='contained'>Contained</Button>
-        <Button variant='outlined'>Outlined</Button>
-      </Stack>
-
-      <h1>MUI Button with Icons</h1>
-      <Stack spacing={2} direction={'row'}>
-        <Button variant='text' startIcon={<Delete />}>
-          Delete
-        </Button>
-        <Button variant='contained' startIcon={<Send />}>
-          Contained
-        </Button>
-        <Button variant='outlined' startIcon={<Photo />}>
-          Outlined
-        </Button>
-      </Stack>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<AuthLayout />}>
+          <Route path='/' element={<Login />} />
+        </Route>
+        <Route path='/admin' element={<BackendLayout />}>
+          <Route path='/admin/dashboard' element={<Dashboard />} />
+          <Route path='/admin/product' element={<Product />} />
+          <Route path='/admin/report' element={<Report />} />
+          <Route path='/admin/setting' element={<Setting />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
