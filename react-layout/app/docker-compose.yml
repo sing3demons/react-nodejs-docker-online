@@ -1,0 +1,16 @@
+version: '3.9'
+networks:
+  web_network:
+    name: react_layout_network
+    driver: bridge
+services:
+  reactapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: reactapp_prod
+    restart: always
+    ports:
+      - 5173:80
+    networks:
+      - web_network
